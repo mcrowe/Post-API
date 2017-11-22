@@ -7,13 +7,26 @@ export type IController = any
 export default function start(port: number, controller: IController) {
 
   const server = http.createServer(async (req, res) => {
-    // TODO: CORS Headers
+
     const t = Date.now()
 
     res.statusCode = 200
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+
+    if (req.method == 'OPTIONS') {
+      res.end('')
+      return
+    }
+
+    if (req.method != 'POST') {
+      sendJSON(res, {error: 'Invalid request method'})
+      log(`Invalid request method: ${req.method}`)
+      return
+    }
 
     if (!req.url || !req.url.endsWith('/action')) {
-      sendJSON(res, {error: 'Invalid request'})
+      sendJSON(res, {error: 'Invalid request url'})
       log(`Invalid request url: ${req.url}`)
       return
     }
