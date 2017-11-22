@@ -1,1 +1,2 @@
-export declare function doSomething(a: number): number;
+export declare type IController = any;
+export default function start(port: number, controller: IController): void;
