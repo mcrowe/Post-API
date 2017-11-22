@@ -4,7 +4,19 @@ Impossibly easy node api framework
 
 ## Usage
 
-> npm install @mcrowe/Post API --save
+> npm install @mcrowe/post-api --save
+
+```js
+import api from 'post-api'
+
+const controller = {
+  hello() {
+    return 'ok'
+  }
+}
+
+api(3000, controller)
+```
 
 ## Development
 

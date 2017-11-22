@@ -20,8 +20,8 @@
   ],
   "license": "ISC",
   "main": "lib/index.js",
-  "name": "@mcrowe/Post API",
-  "repository": "https://github.com/mcrowe/Post API",
+  "name": "@mcrowe/post-api",
+  "repository": "https://github.com/mcrowe/post-api",
   "scripts": {
     "build": "tsc",
     "clean": "rm -rf lib/*",
